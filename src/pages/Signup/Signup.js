@@ -9,6 +9,7 @@ class Signup extends React.Component{
         super(props);
         this.state = {
             name: "",
+            address: "",
             phone_number: "",
             email: "",
             password: "",
@@ -41,7 +42,7 @@ class Signup extends React.Component{
         //var emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var emailPattern = /[^@]+@[^@]+\.[^@]+/;
         //console.log(this.state);
-        var {name, phone_number, email, password, verify_password} = this.state;
+        var {name, address, phone_number, email, password, verify_password} = this.state;
         var {history, users} = this.props;
         //console.log(users)
         //this.props.userSignupRequest(this.state);
@@ -51,6 +52,14 @@ class Signup extends React.Component{
             this.showValidationErr("name", "Bạn phải nhập Họ tên")
         } else {
             this.showValidationErr("name", "")
+        }
+
+        if (address === ""){
+            //console.log("err")
+            isValid = false;
+            this.showValidationErr("address", "Bạn phải nhập Họ tên")
+        } else {
+            this.showValidationErr("address", "")
         }
         //check phone_number
         if (phone_number === ""){
@@ -105,6 +114,7 @@ class Signup extends React.Component{
             // console.log("ok")
             callApi('user', 'POST', {
                 name: name,
+                address: address,
                 phone_number: phone_number,
                 email: email,
                 password: password
@@ -118,7 +128,7 @@ class Signup extends React.Component{
     }
     render(){
         //var {name, phone_number, email, password, verify_password} = this.state;
-        let phone_numberErr, passwordErr, nameErr, emailErr, verify_passwordErr = null;
+        let addressErr, phone_numberErr, passwordErr, nameErr, emailErr, verify_passwordErr = null;
         for(let err of this.state.errors){
             if(err.elm === "phone_number"){
                 phone_numberErr = err.msg
@@ -128,6 +138,9 @@ class Signup extends React.Component{
             }
             if (err.elm === "name"){
                 nameErr = err.msg
+            }
+            if (err.elm === "address"){
+                addressErr = err.msg
             }
             if (err.elm === "email"){
                 emailErr = err.msg
@@ -162,6 +175,16 @@ class Signup extends React.Component{
                                     onChange={this.handleChange} 
                                 />
                                 <small className="text-danger"> {nameErr ? nameErr : ""} </small>
+                                <input 
+                                    type="text"
+                                    id="address"
+                                    name="address" 
+                                    value={this.state.address}
+                                    placeholder="Địa Chỉ" 
+                                    
+                                    onChange={this.handleChange} 
+                                />
+                                <small className="text-danger"> {addressErr ? addressErr : ""} </small>
                                 <input 
                                     type="text" 
                                     id="phone_number" 

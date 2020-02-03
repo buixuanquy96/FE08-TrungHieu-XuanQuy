@@ -4,6 +4,9 @@ var initialState = {
 }
 
 //var initialState = []
+// var data = JSON.parse(sessionStorage.getItem('TOKEN'));
+// var initialState = data ? data : [];
+
 
 const checkUser = (state = initialState, action) => {
     var {userLogin} = action
@@ -16,7 +19,7 @@ const checkUser = (state = initialState, action) => {
             // state = sessionStorage.setItem('TOKEN', JSON.stringify(state));
             sessionStorage.setItem('TOKEN', JSON.stringify(userLogin))
             
-            //return [...state];
+           // return [...state];
             
             return {
                 loggingIn: true,
@@ -26,7 +29,7 @@ const checkUser = (state = initialState, action) => {
             //console.log("abc")
             
             sessionStorage.removeItem('TOKEN', JSON.stringify(userLogin));
-            // //return [...state];
+            //return [...state];
             
             return {
                 loggingIn: false,
@@ -36,6 +39,7 @@ const checkUser = (state = initialState, action) => {
         // return [...state];
         default:
             //return [...state];
+            
             return state
     }
 }

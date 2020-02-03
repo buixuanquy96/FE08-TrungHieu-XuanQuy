@@ -1308,6 +1308,7 @@
     {
       "id": 1,
       "name": "abc",
+      "address": "123 da nang",
       "phone_number": "123",
       "email": "123@gmail.com",
       "password": "123"
@@ -1315,6 +1316,7 @@
     {
       "id": 2,
       "name": "xyz",
+      "address": "123 da nang",
       "phone_number": "113",
       "email": "111@gmail.com",
       "password": "111"
@@ -1322,9 +1324,18 @@
     {
       "name": "Bui",
       "phone_number": "123",
+      "address": "123 da nang",
       "email": "12345@gmail.com",
       "password": "12345",
       "id": 3
+    },
+    {
+      "name": "abc",
+      "address": "123",
+      "phone_number": "123456789",
+      "email": "123456@gmail.com",
+      "password": "123456",
+      "id": 4
     }
   ],
   "checkout": [

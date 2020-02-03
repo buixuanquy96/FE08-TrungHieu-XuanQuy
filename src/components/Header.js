@@ -10,9 +10,13 @@ class Header extends React.Component{
    
 
     render(){
-        //var {checkUser} = this.props
+        // var {checkUser} = this.props
+        // console.log(checkUser)
         //var {loggingIn} = this.state
-        const {loggingIn} = this.props.checkUser;
+
+        var {loggingIn} = this.props.checkUser;
+        var {cartProduct} = this.props;
+        //console.log(cartProduct)
 
         const guestLink = (
             <li>
@@ -69,10 +73,17 @@ class Header extends React.Component{
                                         <li><NavLink to="/products"><i className="fa fa-user"></i> Sản Phẩm</NavLink></li>
                                         
                                         <li><NavLink to="/checkout"><i className="fa fa-crosshairs"></i> Thanh Toán</NavLink></li>
-                                        <li><NavLink to="/cart"><i className="fa fa-shopping-cart"></i> Giỏ Hàng</NavLink></li>
+                                        <li >
+                                            <NavLink to="/cart" className="cart-number"><i className="fa fa-shopping-cart"></i> Giỏ Hàng <span className="number-cart"> {cartProduct.length} </span> </NavLink>
+                                            
+                                        </li>
+                                        
+                                        {/* {this.onCheckUser(checkUser)} */}
+
                                         {/* <li>
                                             <NavLink to="/login"><i className="fa fa-lock"></i> Đăng Nhập</NavLink>
                                         </li> */}
+
                                         {loggingIn ? userLink : guestLink}
                                     </ul>
                                 </div>
@@ -120,15 +131,33 @@ class Header extends React.Component{
     onLogOut = () => {
         var {onUserLogOut} = this.props;
         onUserLogOut();
-        
     }
 
+    // onCheckUser = (checkUser) => {
+        
+    //     var result = (
+    //         <li>
+    //             <NavLink to="/login"><i className="fa fa-lock"></i> Đăng Nhập</NavLink>
+    //         </li>
+    //         );
+
+    //     if (checkUser.length > 0){
+    //         result = (
+    //             <li>
+    //                 <NavLink to="#" onClick ={() => this.onLogOut()}><i className="fa fa-lock"></i> Đăng Xuất</NavLink>
+    //             </li>
+    //             );
+    //     } 
+
+    //     return result
+    // }
     
 }
 
 const mapStateToProps = state =>{
     return{
-        checkUser: state.checkUser
+        checkUser: state.checkUser,
+        cartProduct: state.cartProduct
 
     }
 }

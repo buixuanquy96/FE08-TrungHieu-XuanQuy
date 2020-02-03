@@ -2576,3 +2576,20 @@ button.btn-lg-buy{
   margin-top: 200px;
 }
 
+/*************************
+******* NUMBER CART ********
+**************************/
+
+/* .cart-number{
+  position: absolute;
+  
+} */
+
+.number-cart{
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  top: 10px;
+}
+
+
