@@ -23,7 +23,7 @@ class CartContainer extends React.Component {
     showCartItem = (cartProduct) =>{
         var {onDeleteProductInCart, onUpdateProductInCart} = this.props;
         var result = null
-        
+        //console.log(cartProduct)
         if(cartProduct.length > 0){
             result = cartProduct.map((item, index)=>{
                 return(

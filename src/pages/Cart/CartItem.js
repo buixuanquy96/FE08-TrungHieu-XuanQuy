@@ -11,7 +11,6 @@ class CartItem extends React.Component{
     var {item} = this.props;
     var {quantity} = item;
     //console.log(item)
-
         return(
             <tr>
                 <td className="cart_product">
@@ -35,7 +34,8 @@ class CartItem extends React.Component{
                                 value={quantity} 
                                 autoComplete="off" 
                                 size="2"
-                                onChange={(e)=>{this.handlerChange(e)}}/>
+                                onChange={(e)=>{this.handlerChange(e)}}
+                                />
                         <button  type="button" className="cart_quantity_up"  
                             onClick={()=>this.onUpdateQuantity(item.product, item.quantity + 1)}> + </button>
                     </div>
@@ -52,6 +52,11 @@ class CartItem extends React.Component{
             </tr>
         )
     }
+
+    handlerChange = (e) =>{
+        
+    }
+
 
     showSubTotal = (price, quantity) =>{
         return price*quantity

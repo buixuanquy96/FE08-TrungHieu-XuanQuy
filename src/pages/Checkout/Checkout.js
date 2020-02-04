@@ -169,7 +169,7 @@ class Checkout extends React.Component{
                         </div>
     
                         <div className="col-sm-4 col-sm-offset-1">
-                            <div>
+                            {/* <div>
                                 <h2>Dia chi giao hang</h2>
                                 <div className="checkout-name">
                                     Ten: <span>abc</span>
@@ -177,7 +177,7 @@ class Checkout extends React.Component{
                                 <div className="checkout-address">
                                     Dia chi: <span>123a</span>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="login-form">
                                 <h2>Thông tin thanh toán</h2>
                                 <form onSubmit={this.handleSubmit} action="#">

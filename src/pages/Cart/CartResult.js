@@ -11,6 +11,7 @@ class CartResult extends React.Component {
                 <td></td>
                 <td></td>
                 <td className="cart_total">
+                   
                     <p className="cart_total_price">Tổng tiền: $ {this.showTotalAmount(cartProduct)}  </p>
                     <div>
                         <NavLink 

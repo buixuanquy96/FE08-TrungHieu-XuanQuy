@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import CartRes from './CartRes';
 
 
 class Cart extends React.Component{
@@ -36,6 +37,11 @@ class Cart extends React.Component{
                             </tbody>
                         </table>
                     </div>
+                    {/* display responsive */}
+                    {/* <div>
+                        <CartRes />
+
+                    </div> */}
                     
                 </div>
             </div>
